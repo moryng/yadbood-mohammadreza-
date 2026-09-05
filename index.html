@@ -6,6 +6,15 @@
     <title>یادبود محمدرضا صاعدی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
+        .cal-wrapper { position: fixed; top: 15px; left: 15px; z-index: 9999; font-family: inherit; direction: rtl; }
+.cal-btn { background: rgba(18,18,18,0.85); border: 1px solid rgba(245,238,220,0.25); color: #f5eedc; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.cal-btn:hover { border-color: #c84b56; }
+.cal-dropdown { position: absolute; top: calc(100% + 8px); left: 0; background: rgba(15,15,15,0.95); border: 1px solid rgba(200,75,86,0.35); border-radius: 12px; padding: 12px 14px; min-width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); opacity: 0; transform: scale(0.9) translate(-10px,-5px); transform-origin: top left; pointer-events: none; transition: all 0.25s cubic-bezier(0.16,1,0.3,1); }
+.cal-dropdown.show { opacity: 1; transform: scale(1) translate(0,0); pointer-events: auto; }
+.cal-row { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; padding: 6px 0; border-bottom: 1px solid rgba(245,238,220,0.08); }
+.cal-row:last-child { border-bottom: none; }
+.cal-label { color: #a5a5a5; }
+.cal-val { font-weight: bold; color: #df6d77; letter-spacing: 0.3px; }
         * {
             box-sizing: border-box;
             margin: 0;
