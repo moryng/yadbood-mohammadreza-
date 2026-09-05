@@ -6,15 +6,18 @@
     <title>یادبود محمدرضا صاعدی</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
+        /* Calendar Styles */
         .cal-wrapper { position: fixed; top: 15px; left: 15px; z-index: 9999; font-family: inherit; direction: rtl; }
-.cal-btn { background: rgba(18,18,18,0.85); border: 1px solid rgba(245,238,220,0.25); color: #f5eedc; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
-.cal-btn:hover { border-color: #c84b56; }
-.cal-dropdown { position: absolute; top: calc(100% + 8px); left: 0; background: rgba(15,15,15,0.95); border: 1px solid rgba(200,75,86,0.35); border-radius: 12px; padding: 12px 14px; min-width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); opacity: 0; transform: scale(0.9) translate(-10px,-5px); transform-origin: top left; pointer-events: none; transition: all 0.25s cubic-bezier(0.16,1,0.3,1); }
-.cal-dropdown.show { opacity: 1; transform: scale(1) translate(0,0); pointer-events: auto; }
-.cal-row { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; padding: 6px 0; border-bottom: 1px solid rgba(245,238,220,0.08); }
-.cal-row:last-child { border-bottom: none; }
-.cal-label { color: #a5a5a5; }
-.cal-val { font-weight: bold; color: #df6d77; letter-spacing: 0.3px; }
+        .cal-btn { background: rgba(18,18,18,0.85); border: 1px solid rgba(245,238,220,0.25); color: #f5eedc; padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+        .cal-btn:hover { border-color: #c84b56; }
+        .cal-dropdown { position: absolute; top: calc(100% + 8px); left: 0; background: rgba(15,15,15,0.95); border: 1px solid rgba(200,75,86,0.35); border-radius: 12px; padding: 12px 14px; min-width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); opacity: 0; transform: scale(0.9) translate(-10px,-5px); transform-origin: top left; pointer-events: none; transition: all 0.25s cubic-bezier(0.16,1,0.3,1); }
+        .cal-dropdown.show { opacity: 1; transform: scale(1) translate(0,0); pointer-events: auto; }
+        .cal-row { display: flex; justify-content: space-between; align-items: center; font-size: 12.5px; padding: 6px 0; border-bottom: 1px solid rgba(245,238,220,0.08); }
+        .cal-row:last-child { border-bottom: none; }
+        .cal-label { color: #a5a5a5; }
+        .cal-val { font-weight: bold; color: #df6d77; letter-spacing: 0.3px; }
+
+        /* General Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -44,10 +47,11 @@
             position: relative;
         }
 
+        /* Title and Dates */
         .title-name {
             font-size: 1.8rem;
             font-weight: 800;
-            color: #e5c158;
+            color: #e5c158; /* Golden yellow for the name */
             text-shadow: 0 0 15px rgba(229, 193, 88, 0.3);
             margin-bottom: 8px;
             letter-spacing: -0.5px;
@@ -66,16 +70,18 @@
             color: #d1d5db;
         }
 
+        /* Quote */
         .staggered-quote {
             margin: 30px 10px;
             font-size: 0.95rem;
             line-height: 1.8;
-            color: #e5e7eb;
+            /* Text color is already elegant off-white for both lines */
         }
 
         .quote-line-1 {
             text-align: right;
             padding-right: 5px;
+            color: #e5e7eb; /* Subtle Off-white/Pearl */
         }
 
         .quote-center-icons {
@@ -89,9 +95,10 @@
         .quote-line-2 {
             text-align: left;
             padding-left: 5px;
-            color: #cbd5e1;
+            color: #cbd5e1; /* Subtle Off-white/Pearl */
         }
 
+        /* Badges */
         .badges-wrapper {
             display: flex;
             justify-content: center;
@@ -105,7 +112,7 @@
             font-size: 0.76rem;
             color: #d4af37;
             background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(52, 73, 93, 0.2); /* Unified Dark Slate Grey Border */
             padding: 6px 12px;
             border-radius: 20px;
             letter-spacing: 0.3px;
@@ -114,9 +121,10 @@
         .days-badge.absence {
             color: #94a3b8;
             background: rgba(148, 163, 184, 0.08);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            border: 1px solid rgba(52, 73, 93, 0.2); /* Unified Dark Slate Grey Border */
         }
 
+        /* Candle Widget */
         .candle-wrapper {
             display: flex;
             flex-direction: column;
@@ -127,8 +135,8 @@
         }
 
         .candle-flame {
-            width: 14px;
-            height: 24px;
+            width: 12px; /* Reduced size */
+            height: 20px; /* Reduced size */
             background: #ffb703;
             border-radius: 50% 50% 20% 20%;
             box-shadow: 0 0 20px #fb8500, 0 0 35px #ffb703;
@@ -142,8 +150,8 @@
         }
 
         .candle-body {
-            width: 58px;
-            height: 85px;
+            width: 50px; /* Reduced size */
+            height: 70px; /* Reduced size */
             background: linear-gradient(180deg, #fefae0 0%, #dda15e 100%);
             border-radius: 8px 8px 12px 12px;
             position: relative;
@@ -159,7 +167,7 @@
         }
 
         .candle-count-on-body {
-            font-size: 0.95rem;
+            font-size: 0.9rem; /* Slightly reduced for smaller candle */
             font-weight: 800;
             color: #4a2c00;
             background: rgba(255, 255, 255, 0.4);
@@ -169,12 +177,13 @@
             text-align: center;
         }
 
-        .candle-hint {
+        .candle-hint { /* New style for hint text */
             font-size: 0.8rem;
             color: #94a3b8;
             margin-top: 10px;
         }
 
+        /* Actions Grid */
         .actions-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -209,6 +218,7 @@
             color: #e2e8f0;
         }
 
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
@@ -322,6 +332,7 @@
             gap: 6px;
         }
 
+        /* Gallery and Media */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -386,17 +397,18 @@
     </style>
 </head>
 <body>
+      <!-- Calendar Widget -->
       <div class="cal-wrapper">
-    <button class="cal-btn" id="calBtn" type="button">
-      📅 
-    </button>
-    <div class="cal-dropdown" id="calDropdown">
-      <div class="cal-row">
-        <span class="cal-label">امروز</span>
-        <span class="cal-val" id="todayDate">در حال بارگذاری...</span>
+        <button class="cal-btn" id="calBtn" type="button">
+          📅 
+        </button>
+        <div class="cal-dropdown" id="calDropdown">
+          <div class="cal-row">
+            <span class="cal-label">امروز</span>
+            <span class="cal-val" id="todayDate">در حال بارگذاری...</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
     <div class="container">
         <h1 class="title-name">محمدرضا صاعدی</h1>
@@ -417,12 +429,13 @@
             <span class="days-badge absence" id="days-without">... روز در حسرت دیدار</span>
         </div>
 
+        <!-- Candle Widget -->
         <div class="candle-wrapper" onclick="lightCandle()">
             <div class="candle-flame"></div>
             <div class="candle-body">
                 <span class="candle-count-on-body" id="candle-count">...</span>
             </div>
-            <div class="candle-hint">برای ادای احترام، شمعی به یادش روشن کنید 🕯️</div>
+            <div class="candle-hint">لمس کنید 🕯️</div> <!-- Added hint text -->
         </div>
 
         <div class="actions-grid">
@@ -438,6 +451,7 @@
         </div>
     </div>
 
+    <!-- Guestbook Modal -->
     <div class="modal" id="guestbook-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -457,6 +471,7 @@
         </div>
     </div>
 
+    <!-- Gallery Modal -->
     <div class="modal" id="gallery-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -518,6 +533,7 @@
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         const SUPABASE_URL = 'https://fndrvqstkqaclucfcyuy.supabase.co';
@@ -528,26 +544,28 @@
             SUPABASE_PUBLISHABLE_KEY
         );
 
+        // Helper to convert numbers to Persian digits
         function toPersianDigits(n) {
             if (n === null || n === undefined || isNaN(n)) return '۰';
             const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
             return n.toString().replace(/\d/g, x => farsiDigits[x]);
         }
 
-        const passingDate = new Date(2026, 0, 8);
+        // Calculate days since passing date
+        const passingDate = new Date(2026, 0, 8); // January 8, 2026
         const today = new Date();
         const diffTime = today - passingDate;
         const diffDays = Math.max(0, Math.floor(diffTime / (1000 * 60 * 60 * 24)));
         document.getElementById('days-without').innerText =
             `${toPersianDigits(diffDays)} روز در حسرت دیدار`;
 
-        // ==================== سیستم آنلاین و دائمی شمارش شمع ====================
+        // ==================== Candle Counter System ====================
         let currentCandleCount = 0;
         let isLighting = false;
 
         async function loadCandleCount() {
             try {
-                // تلاش اول: بررسی از جدول candles (بهترین و ساده‌ترین روش استاندارد)
+                // Attempt 1: Check 'candles' table (standard and simple)
                 const { count, error: countErr } = await supabaseClient
                     .from('candles')
                     .select('*', { count: 'exact', head: true });
@@ -558,7 +576,7 @@
                     return;
                 }
 
-                // تلاش دوم: در صورت وجود جدول site_stats
+                // Attempt 2: Fallback to 'site_stats' table if 'candles' fails
                 const { data, error } = await supabaseClient
                     .from('site_stats')
                     .select('candle_count')
@@ -571,12 +589,12 @@
                     return;
                 }
 
-                // در صورت لود نشدن دیتابیس، مقدار محلی یا صفر نمایش داده می‌شود
+                // If database loading fails, show local cache or zero
                 const local = parseInt(localStorage.getItem('cached_candle_count') || '0', 10);
                 currentCandleCount = local;
                 document.getElementById('candle-count').innerText = toPersianDigits(currentCandleCount);
             } catch (err) {
-                console.error("خطا در لود تعداد شمع:", err);
+                console.error("Error loading candle count:", err);
                 document.getElementById('candle-count').innerText = toPersianDigits(0);
             }
         }
@@ -585,32 +603,34 @@
             if (isLighting) return;
             isLighting = true;
 
-            // افزایش بصری آنی برای تجربه کاربری نرم
+            // Immediate visual update for smooth UX
             currentCandleCount++;
             document.getElementById('candle-count').innerText = toPersianDigits(currentCandleCount);
-            localStorage.setItem('cached_candle_count', currentCandleCount);
+            localStorage.setItem('cached_candle_count', currentCandleCount); // Cache locally
 
             try {
-                // ثبت در جدول دیتابیس Supabase
+                // Attempt to insert into Supabase 'candles' table
                 const { error: insertErr } = await supabaseClient
                     .from('candles')
                     .insert([{}]);
 
                 if (insertErr) {
-                    // تلاش جایگزین: اجرای RPC در صورت تنظیم
+                    // Fallback: Execute RPC function if defined
                     await supabaseClient.rpc('increment_candle');
                 }
             } catch (err) {
-                console.error("خطا در ثبت شمع در دیتابیس:", err);
+                console.error("Error saving candle to database:", err);
             } finally {
+                // Reset flag after a short delay
                 setTimeout(() => { isLighting = false; }, 350);
             }
         }
 
+        // Modal functions
         function openModal(id) {
             document.getElementById(id).classList.add('active');
             if (id === 'guestbook-modal') {
-                loadMemories();
+                loadMemories(); // Load memories when guestbook modal is opened
             }
         }
 
@@ -618,6 +638,7 @@
             document.getElementById(id).classList.remove('active');
         }
 
+        // Function to create a memory element for the guestbook
         function createMemoryElement(memory) {
             const item = document.createElement('div');
             item.className = 'msg-item';
@@ -636,24 +657,26 @@
             return item;
         }
 
+        // Load memories from Supabase
         async function loadMemories() {
             const container = document.getElementById('messages-container');
-            container.innerHTML = '<div class="msg-text">در حال دریافت یادگاری‌ها...</div>';
+            container.innerHTML = '<div class="msg-text">در حال دریافت یادگاری‌ها...</div>'; // Loading indicator
 
             const { data, error } = await supabaseClient
                 .from('memories')
                 .select('id, name, message, created_at')
-                .order('created_at', { ascending: false });
+                .order('created_at', { ascending: false }); // Order by newest first
 
             if (error) {
                 console.error(error);
                 container.innerHTML =
-                    '<div class="msg-text">مشکلی در دریافت یادگاری‌ها پیش آمد.</div>';
+                    '<div class="msg-text">مشکلی در دریافت یادگاری‌ها پیش آمد.</div>'; // Error message
                 return;
             }
 
-            container.innerHTML = '';
+            container.innerHTML = ''; // Clear loading message
 
+            // Add the initial hardcoded message from Mory
             const initialMemory = {
                 name: 'Mory',
                 message: 'همیشه جات خالیه داداش، یادت تا ابد با ماست... 🖤'
@@ -661,14 +684,16 @@
             container.appendChild(createMemoryElement(initialMemory));
 
             if (!data || data.length === 0) {
-                return;
+                return; // No more memories to display
             }
 
+            // Append fetched memories
             data.forEach(memory => {
                 container.appendChild(createMemoryElement(memory));
             });
         }
 
+        // Add a new memory to Supabase
         async function addMemory() {
             const nameInput = document.getElementById('sender-name');
             const messageInput = document.getElementById('sender-msg');
@@ -682,6 +707,7 @@
                 return;
             }
 
+            // Disable button and change text during submission
             submitButton.disabled = true;
             submitButton.textContent = 'در حال ثبت...';
 
@@ -689,6 +715,7 @@
                 .from('memories')
                 .insert([{ name: name, message: message }]);
 
+            // Re-enable button and reset text
             submitButton.disabled = false;
             submitButton.textContent = 'ثبت یادگاری';
 
@@ -698,66 +725,70 @@
                 return;
             }
 
+            // Clear inputs and reload memories
             nameInput.value = '';
             messageInput.value = '';
-
-            await loadMemories();
+            await loadMemories(); // Refresh the list
         }
 
-        // بارگذاری اولیه
-        loadCandleCount();
-        loadMemories();
+        // Initial load actions
+        loadCandleCount(); // Load candle count on page load
+        loadMemories();    // Load memories when guestbook modal is initially opened (or on first load if modal is set to open initially)
         </script>
-<!-- بخش متن یادبود ساده، فوق سبک و رنگ صدفی -->
-<div style="max-width: 550px; margin: 35px auto 20px auto; padding: 20px 15px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; text-align: center; color: #f5eedc;">
-    <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
-        نامت ماندگار
-    </p>
-    <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
-        نیکی‌هایت در یاد ما
-    </p>
-    <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
-        بخشیدم و ببخش بدی‌هایم را
-    </p>
-    <p style="margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
-        آرام بخواب، که نامت تا همیشه در دل ما خواهد ماند. 🥀
-    </p>
-</div>
+
+    <!-- Static section for memorial text, styled inline -->
+    <div style="max-width: 550px; margin: 35px auto 20px auto; padding: 20px 15px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; text-align: center; color: #f5eedc;">
+        <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
+            نامت ماندگار
+        </p>
+        <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
+            نیکی‌هایت در یاد ما
+        </p>
+        <p style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
+            بخشیدم و ببخش بدی‌هایم را
+        </p>
+        <p style="margin: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.8;">
+            آرام بخواب، که نامت تا همیشه در دل ما خواهد ماند. 🥀
+        </p>
+    </div>
+
+    <!-- Calendar dropdown script -->
     <script>
-  // تقویم کشویی و محاسبه تاریخ شمسی امروز
-  (function() {
-    const btn = document.getElementById('calBtn');
-    const dropdown = document.getElementById('calDropdown');
-    const todayElem = document.getElementById('todayDate');
+      (function() {
+        const btn = document.getElementById('calBtn');
+        const dropdown = document.getElementById('calDropdown');
+        const todayElem = document.getElementById('todayDate');
 
-    if (btn && dropdown) {
-      // باز و بسته شدن کشویی
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        dropdown.classList.toggle('show');
-      });
+        // Toggle dropdown visibility
+        if (btn && dropdown) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent click from closing immediately
+            dropdown.classList.toggle('show');
+          });
 
-      // بستن تقویم با کلیک بیرون از کادر
-      document.addEventListener('click', function(e) {
-        if (!dropdown.contains(e.target) && e.target !== btn) {
-          dropdown.classList.remove('show');
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target) && e.target !== btn) {
+              dropdown.classList.remove('show');
+            }
+          });
         }
-      });
-    }
 
-    // تاریخ دقیق امروز به شمسی
-    if (todayElem) {
-      try {
-        const today = new Intl.DateTimeFormat('fa-IR', {
-          day: 'numeric',
-          month: 'long'
-        }).format(new Date());
-        todayElem.textContent = today;
-      } catch (err) {
-        todayElem.textContent = 'امروز';
-      }
-    }
-  })();
-</script>
+        // Display today's date in Persian
+        if (todayElem) {
+          try {
+            // Using Intl.DateTimeFormat for Persian locale date
+            const today = new Intl.DateTimeFormat('fa-IR', {
+              day: 'numeric',
+              month: 'long'
+            }).format(new Date());
+            todayElem.textContent = today;
+          } catch (err) {
+            console.error("Error formatting date:", err);
+            todayElem.textContent = 'امروز'; // Fallback text
+          }
+        }
+      })();
+    </script>
 </body>
 </html>
