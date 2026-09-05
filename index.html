@@ -731,5 +731,41 @@
         آرام بخواب، که نامت تا همیشه در دل ما خواهد ماند. 🥀
     </p>
 </div>
+    <script>
+  // تقویم کشویی و محاسبه تاریخ شمسی امروز
+  (function() {
+    const btn = document.getElementById('calBtn');
+    const dropdown = document.getElementById('calDropdown');
+    const todayElem = document.getElementById('todayDate');
+
+    if (btn && dropdown) {
+      // باز و بسته شدن کشویی
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+      });
+
+      // بستن تقویم با کلیک بیرون از کادر
+      document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target) && e.target !== btn) {
+          dropdown.classList.remove('show');
+        }
+      });
+    }
+
+    // تاریخ دقیق امروز به شمسی
+    if (todayElem) {
+      try {
+        const today = new Intl.DateTimeFormat('fa-IR', {
+          day: 'numeric',
+          month: 'long'
+        }).format(new Date());
+        todayElem.textContent = today;
+      } catch (err) {
+        todayElem.textContent = 'امروز';
+      }
+    }
+  })();
+</script>
 </body>
 </html>
